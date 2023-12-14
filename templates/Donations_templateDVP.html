@@ -1,0 +1,156 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Donation Date -->
+		<div class="form-group Donations-DonationDate" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Donation Date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(DonationDate)%%></div>
+			</div>
+		</div>
+		<!-- Field: Amount -->
+		<div class="form-group Donations-Amount" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Amount</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Amount)%%></div>
+			</div>
+		</div>
+		<!-- Field: Description -->
+		<div class="form-group Donations-Description" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Description</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Description)%%></div>
+			</div>
+		</div>
+		<!-- Field: Supporter -->
+		<div class="form-group Donations-SupporterID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Supporter</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="SupporterID<%%RND1%%>"><%%COMBOTEXT(SupporterID)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Campaign -->
+		<div class="form-group Donations-CampaignID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Campaign</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="CampaignID<%%RND1%%>"><%%COMBOTEXT(CampaignID)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Payment Type -->
+		<div class="form-group Donations-Paytype" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Payment Type</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(Paytype)%%></div>
+			</div>
+		</div>
+		<!-- Field: Matching -->
+		<div class="form-group Donations-Matching" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Matching</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="Matching" id="Matching" value="1" <%%CHECKED(Matching)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: Anonymous -->
+		<div class="form-group Donations-Anonymous" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Anonymous</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="Anonymous" id="Anonymous" value="1" <%%CHECKED(Anonymous)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: Acknowledged -->
+		<div class="form-group Donations-Acknowledged" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Acknowledged</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><input type="checkbox" name="Acknowledged" id="Acknowledged" value="1" <%%CHECKED(Acknowledged)%%> readonly></div>
+			</div>
+		</div>
+		<!-- Field: Donation Year -->
+		<div class="form-group Donations-DonationYear" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Donation Year</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(DonationYear)%%></div>
+			</div>
+		</div>
+		<!-- Field: Notes -->
+		<div class="form-group Donations-Notes" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Notes</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Notes)%%></div>
+			</div>
+		</div>
+		<!-- Field: In Memory Of -->
+		<div class="form-group Donations-MemoryOf" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">In Memory Of</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(MemoryOf)%%></div>
+			</div>
+		</div>
+		<!-- Field: In Honor Of -->
+		<div class="form-group Donations-HonorOf" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">In Honor Of</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(HonorOf)%%></div>
+			</div>
+		</div>
+		<!-- Field: Mailing Name -->
+		<div class="form-group Donations-MailingName" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Mailing Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="MailingName<%%RND1%%>"></span></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>
+<!-- child records -->
+<div class="panel-body">
+	<div id="Donations-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=Donations-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'Donations',
+				SelectedID: '<%%VALUE(ID)%%>',
+				Operation: 'show-children-printable'
+			},
+			'Donations-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+

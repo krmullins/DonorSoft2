@@ -1,0 +1,10 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the Notes_init() hook (in hooks/Notes.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="Notes-SupporterID-<%%VALUE(ID)%%>" class="Notes-SupporterID text-right text-bold"><%%VALUE(SupporterID)%%></td>
+		<td id="Notes-Date-<%%VALUE(ID)%%>" class="Notes-Date text-bold"><%%VALUE(Date)%%></td>
+		<td id="Notes-Note-<%%VALUE(ID)%%>" class="Notes-Note text-bold"><%%VALUE(Note)%%></td>

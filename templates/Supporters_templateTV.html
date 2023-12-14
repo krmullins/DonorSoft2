@@ -1,0 +1,36 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the Supporters_init() hook (in hooks/Supporters.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="Supporters-ID-<%%VALUE(ID)%%>" class="Supporters-ID text-right"><%%SELECT%%><%%VALUE(ID)%%><%%ENDSELECT%%></td>
+		<td id="Supporters-FirstName-<%%VALUE(ID)%%>" class="Supporters-FirstName"><%%SELECT%%><%%VALUE(FirstName)%%><%%ENDSELECT%%></td>
+		<td id="Supporters-LastName-<%%VALUE(ID)%%>" class="Supporters-LastName"><%%SELECT%%><%%VALUE(LastName)%%><%%ENDSELECT%%></td>
+		<td id="Supporters-SpouseName-<%%VALUE(ID)%%>" class="Supporters-SpouseName"><%%VALUE(SpouseName)%%></td>
+		<td id="Supporters-Address1-<%%VALUE(ID)%%>" class="Supporters-Address1"><%%VALUE(Address1)%%></td>
+		<td id="Supporters-Address2-<%%VALUE(ID)%%>" class="Supporters-Address2"><%%VALUE(Address2)%%></td>
+		<td id="Supporters-City-<%%VALUE(ID)%%>" class="Supporters-City"><%%VALUE(City)%%></td>
+		<td id="Supporters-State-<%%VALUE(ID)%%>" class="Supporters-State"><%%VALUE(State)%%></td>
+		<td id="Supporters-Zip-<%%VALUE(ID)%%>" class="Supporters-Zip"><%%VALUE(Zip)%%></td>
+		<td id="Supporters-Country-<%%VALUE(ID)%%>" class="Supporters-Country"><%%VALUE(Country)%%></td>
+		<td id="Supporters-Phone-<%%VALUE(ID)%%>" class="Supporters-Phone"><%%VALUE(Phone)%%></td>
+		<td id="Supporters-Cell-<%%VALUE(ID)%%>" class="Supporters-Cell"><%%VALUE(Cell)%%></td>
+		<td id="Supporters-Email-<%%VALUE(ID)%%>" class="Supporters-Email"><a href="mailto:<%%VALUE(Email)%%>" title="<%%VALUE(Email)%%>" class="btn btn-default"><i class="glyphicon glyphicon-envelope text-info"></i></a></td>
+		<td id="Supporters-Status-<%%VALUE(ID)%%>" class="Supporters-Status"><%%VALUE(Status)%%></td>
+		<td id="Supporters-ContactMethod-<%%VALUE(ID)%%>" class="Supporters-ContactMethod"><%%VALUE(ContactMethod)%%></td>
+		<td id="Supporters-TotalDonated-<%%VALUE(ID)%%>" class="Supporters-TotalDonated text-right"><%%VALUE(TotalDonated)%%></td>
+		<td id="Supporters-TotalMatched-<%%VALUE(ID)%%>" class="Supporters-TotalMatched text-right"><%%VALUE(TotalMatched)%%></td>
+		<td class="child-Donations-SupporterID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="Donations" data-lookup-field="SupporterID">
+			<a href="Donations_view.php?filterer_SupporterID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="Donations_view.php?filterer_SupporterID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Donations)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>
+		<td class="child-Notes-SupporterID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="Notes" data-lookup-field="SupporterID">
+			<a href="Notes_view.php?filterer_SupporterID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="Notes_view.php?filterer_SupporterID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Notes)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>
+		<td class="child-MatchingFunds-SupporterID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="MatchingFunds" data-lookup-field="SupporterID">
+			<a href="MatchingFunds_view.php?filterer_SupporterID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="MatchingFunds_view.php?filterer_SupporterID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Matching Funds)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>

@@ -1,0 +1,388 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/Supporters-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="Supporters_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="Supporters_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<input type="hidden" id="Donations_hclink" value="Donations_view.php?filterer_SupporterID=<%%URLVALUE(ID)%%>&<%%EMBEDDED%%>">
+			<input type="hidden" id="Notes_hclink" value="Notes_view.php?filterer_SupporterID=<%%URLVALUE(ID)%%>&<%%EMBEDDED%%>">
+			<input type="hidden" id="MatchingFunds_hclink" value="MatchingFunds_view.php?filterer_SupporterID=<%%URLVALUE(ID)%%>&<%%EMBEDDED%%>">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr class="hidden-xs hidden-sm">
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="Supporters_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: First Name -->
+				<div class="form-group Supporters-FirstName">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="FirstName">First Name</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="FirstName" id="FirstName" value="<%%VALUE(FirstName)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Last Name -->
+				<div class="form-group Supporters-LastName">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="LastName">Last Name</label>
+					<div class="col-lg-9">
+						<input maxlength="50" type="text" class="form-control" name="LastName" id="LastName" value="<%%VALUE(LastName)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Spouse Name -->
+				<div class="form-group Supporters-SpouseName">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="SpouseName">Spouse Name</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="SpouseName" id="SpouseName" value="<%%VALUE(SpouseName)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Address1 -->
+				<div class="form-group Supporters-Address1">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="Address1">Address1</label>
+					<div class="col-lg-9">
+						<input maxlength="255" type="text" class="form-control" name="Address1" id="Address1" value="<%%VALUE(Address1)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Address2 -->
+				<div class="form-group Supporters-Address2">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="Address2">Address2</label>
+					<div class="col-lg-9">
+						<input maxlength="255" type="text" class="form-control" name="Address2" id="Address2" value="<%%VALUE(Address2)%%>">
+					</div>
+				</div>
+
+				<!-- Field: City -->
+				<div class="form-group Supporters-City">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="City">City</label>
+					<div class="col-lg-9">
+						<input maxlength="85" type="text" class="form-control" name="City" id="City" value="<%%VALUE(City)%%>">
+					</div>
+				</div>
+
+				<!-- Field: State -->
+				<div class="form-group Supporters-State">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="State">State <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#State-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="State-description"><div class="alert alert-info bspacer-xs">Select a State Abbreviation</div></span>
+						<%%COMBO(State)%%>
+					</div>
+				</div>
+
+				<!-- Field: Zip -->
+				<div class="form-group Supporters-Zip">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="Zip">Zip</label>
+					<div class="col-lg-9">
+						<input maxlength="10" type="text" class="form-control" name="Zip" id="Zip" value="<%%VALUE(Zip)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Country -->
+				<div class="form-group Supporters-Country">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="Country">Country</label>
+					<div class="col-lg-9">
+						<%%COMBO(Country)%%>
+					</div>
+				</div>
+
+				<!-- Field: Phone -->
+				<div class="form-group Supporters-Phone">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="Phone">Phone</label>
+					<div class="col-lg-9">
+						<input maxlength="20" type="text" class="form-control" name="Phone" id="Phone" value="<%%VALUE(Phone)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Cell -->
+				<div class="form-group Supporters-Cell">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="Cell">Cell</label>
+					<div class="col-lg-9">
+						<input maxlength="20" type="text" class="form-control" name="Cell" id="Cell" value="<%%VALUE(Cell)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Email -->
+				<div class="form-group Supporters-Email">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="Email-edit-link">Email <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#Email-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="Email-description"><div class="alert alert-info bspacer-xs">Click the icon to add or edit an email address.</div></span>
+						<div>
+							<a id="Email-link" href="mailto:<%%VALUE(Email)%%>" target="_blank" class="rspacer-lg"><i class="glyphicon glyphicon-envelope text-info" title="<%%VALUE(Email)%%>"></i></a>
+							<label for="Email"><button type="button" id="Email-edit-link" class="btn btn-default vspacer-sm" data-toggle="collapse" data-target="#Email" title="<%%TRANSLATION(Edit)%%>"><i class="glyphicon glyphicon-pencil"></i></button></label>
+							<input maxlength="80" type="text" class="form-control collapse" name="Email" id="Email" value="<%%VALUE(Email)%%>">
+						</div>
+						<script>/* disable empty links */ $j(() => { const e_Email = '<%%VALUE(Email)%%>'; if(e_Email == '' || e_Email == '&nbsp;' || e_Email == 'blank.gif') { $j('#Email-link').hide(); $j('#Email-image').parents('a').attr('href', '').on('click', (e) => e.preventDefault()); } });</script>
+					</div>
+				</div>
+
+				<!-- Field: Status -->
+				<div class="form-group Supporters-Status">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Status</label>
+					<div class="col-lg-9">
+						<%%COMBO(Status)%%>
+					</div>
+				</div>
+
+				<!-- Field: Contact Method -->
+				<div class="form-group Supporters-ContactMethod">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="ContactMethod">Contact Method <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#ContactMethod-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="ContactMethod-description"><div class="alert alert-info bspacer-xs">Select how the supporters would like to be contacted.</div></span>
+						<%%COMBO(ContactMethod)%%>
+					</div>
+				</div>
+
+				<!-- Field: Total Donated -->
+				<div class="form-group Supporters-TotalDonated">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Total Donated</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="TotalDonated"><%%VALUE(TotalDonated)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Total Matched -->
+				<div class="form-group Supporters-TotalMatched">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Total Matched</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="TotalMatched"><%%VALUE(TotalMatched)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Mailing Name -->
+				<div class="form-group Supporters-MailingName">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Mailing Name</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="MailingName"><%%VALUE(MailingName)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Mailing Name Full -->
+				<div class="form-group Supporters-MailingNameFull">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Mailing Name Full</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="MailingNameFull"><%%VALUE(MailingNameFull)%%></div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2" id="Supporters_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- child records -->
+	<hr>
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<div id="Supporters-children" class="children-tabs">
+				<div class="text-center"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+			</div>
+		</div>
+	</div>
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			$j('#Supporters_dv_container-loading').addClass('hidden');
+			$j('#Supporters_dv_container').removeClass('hidden');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('Supporters', 'FirstName');
+
+			$j('form').eq(0).change(function() {
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+			if(embedded_mode) {
+				/* hide links to children tables in embedded mode */
+				$j('.detail_view a[id$=_link]').remove();
+
+				/* append embedded mode to all links */
+				var append_embedded = function() {
+					$j('a[href]:not([href^="#"]):not([href^="javascript"]):not([href$="Embedded=1"]):not([href*="link.php?t="]):not([href^="mailto:"]):not([href$=".jpg"]):not([href$=".png"]):not([href$=".gif"])').each(
+						function() {
+							$j(this).attr('href', $j(this).attr('href') + '&Embedded=1');
+						}
+					);
+				}
+				setTimeout(append_embedded, 500);
+				setTimeout(append_embedded, 1500);
+				setTimeout(append_embedded, 2500);
+				setTimeout(append_embedded, 3500);
+			}
+
+			/* when no record is selected ('add new' mode) */
+			if(add_new_mode) {
+				/* hide links to children tables */
+				$j('.detail_view a[id$=_link]').remove();
+			} else {
+				post(
+					'parent-children.php', {
+						ParentTable: 'Supporters',
+						SelectedID: '<%%VALUE(ID)%%>',
+						Operation: 'show-children'
+					},
+					'Supporters-children'
+				);
+			}
+
+			if(true /* !embedded_mode */) {
+				$j('.add_new_parent').click(function() {
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function() {
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = localStorage.getItem(pt + '_last_added_id');
+							if(new_id === null) return;
+
+							localStorage.removeItem(pt + '_last_added_id');
+							AppGini.lookupText({
+								id: new_id,
+								table: 'Supporters',
+								field: field_id,
+								callback: function(data) {
+									$j('#' + field_id + '-container').select2('data', data, true);
+								}
+							});
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length) {
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				} else {
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length) {
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id != undefined && parent_id != '') {
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function() {
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+									// in case the parent record was updated, we should update auto-fills
+									var updaterName = field_id + '_update_autofills';
+									if(typeof(window[updaterName]) == 'function')
+										window[updaterName]();
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=Supporters&id=<%%URLVALUE(ID)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=Supporters&id=<%%URLVALUE(ID)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function() {
+				if($j('#deselect.btn-warning').length) {
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

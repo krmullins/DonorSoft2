@@ -1,0 +1,17 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the Campaigns_init() hook (in hooks/Campaigns.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="Campaigns-CampaignName-<%%VALUE(ID)%%>" class="Campaigns-CampaignName"><%%SELECT%%><%%VALUE(CampaignName)%%><%%ENDSELECT%%></td>
+		<td id="Campaigns-StartDate-<%%VALUE(ID)%%>" class="Campaigns-StartDate"><%%VALUE(StartDate)%%></td>
+		<td id="Campaigns-EndDate-<%%VALUE(ID)%%>" class="Campaigns-EndDate"><%%VALUE(EndDate)%%></td>
+		<td id="Campaigns-Goal-<%%VALUE(ID)%%>" class="Campaigns-Goal text-right"><%%VALUE(Goal)%%></td>
+		<td id="Campaigns-DateClosed-<%%VALUE(ID)%%>" class="Campaigns-DateClosed"><%%VALUE(DateClosed)%%></td>
+		<td id="Campaigns-Status-<%%VALUE(ID)%%>" class="Campaigns-Status"><%%VALUE(Status)%%></td>
+		<td class="child-Donations-CampaignID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="Donations" data-lookup-field="CampaignID">
+			<a href="Donations_view.php?filterer_CampaignID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="Donations_view.php?filterer_CampaignID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Donations)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>

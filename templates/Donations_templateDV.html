@@ -1,0 +1,356 @@
+<!-- To change the layout of the detail view form, we recommend using JS code in hooks/Donations-dv.js rather than editing this file -->
+
+<div id="detail-view"></div>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div id="Donations_dv_container-loading" class="text-center text-info text-bold vspacer-lg"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+
+<div class="panel-body hidden" id="Donations_dv_container">
+	<!-- child links -->
+	<div class="row vspacer-md">
+		<div class="col-xs-12 children-links">
+			<input type="hidden" id="MatchingFunds_hclink" value="MatchingFunds_view.php?filterer_DonationID=<%%URLVALUE(ID)%%>&<%%EMBEDDED%%>">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr class="hidden-xs hidden-sm">
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="Donations_dv_form">
+			<fieldset class="form-horizontal">
+
+				<!-- Field: Donation Date -->
+				<div class="form-group Donations-DonationDate">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="DonationDate-mm">Donation Date</label>
+					<div class="col-lg-9">
+						<%%COMBO(DonationDate)%%>
+					</div>
+				</div>
+
+				<!-- Field: Amount -->
+				<div class="form-group Donations-Amount">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="Amount">Amount<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="13" type="text" class="form-control" name="Amount" id="Amount" value="<%%VALUE(Amount)%%>" required>
+					</div>
+				</div>
+
+				<!-- Field: Description -->
+				<div class="form-group Donations-Description">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="Description">Description <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#Description-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="Description-description"><div class="alert alert-info bspacer-xs">How would you describe this donation?</div></span>
+						<input type="text" class="form-control" name="Description" id="Description" value="<%%VALUE(Description)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Supporter -->
+				<div class="form-group Donations-SupporterID">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="SupporterID" data-parent_link="view_parent_modal">Supporter <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#SupporterID-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="SupporterID-description"><div class="alert alert-info bspacer-xs">This is to link the donation to a supporter.</div></span>
+						<div class="lookup-flex"><%%COMBO(SupporterID)%%><%%PLINK(SupporterID)%%><%%ADDNEW(Supporters)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Campaign -->
+				<div class="form-group Donations-CampaignID">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="CampaignID" data-parent_link="view_parent_modal">Campaign <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#CampaignID-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="CampaignID-description"><div class="alert alert-info bspacer-xs">This is to identify what Campaing the donatin should be associated with.  If there isn't one there should be a general campaig value you can assign.</div></span>
+						<div class="lookup-flex"><%%COMBO(CampaignID)%%><%%PLINK(CampaignID)%%><%%ADDNEW(Campaigns)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Payment Type -->
+				<div class="form-group Donations-Paytype">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Payment Type<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(Paytype)%%>
+					</div>
+				</div>
+
+				<!-- Field: Matching -->
+				<div class="form-group Donations-Matching">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="Matching-description"><div class="alert alert-info bspacer-xs">Is the donation going to be Matched?</div></span>
+						<div class="checkbox">
+							<label for="Matching"><input type="checkbox" name="Matching" id="Matching" value="1" <%%CHECKED(Matching)%%>> Matching</label> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#Matching-description"></i>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Anonymous -->
+				<div class="form-group Donations-Anonymous">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="Anonymous-description"><div class="alert alert-info bspacer-xs">Is this an Anonymous Donation?</div></span>
+						<div class="checkbox">
+							<label for="Anonymous"><input type="checkbox" name="Anonymous" id="Anonymous" value="1" <%%CHECKED(Anonymous)%%>> Anonymous</label> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#Anonymous-description"></i>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Acknowledged -->
+				<div class="form-group Donations-Acknowledged">
+					<hr class="hidden-md hidden-lg">
+					<div class="col-lg-offset-3 col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="Acknowledged-description"><div class="alert alert-info bspacer-xs">Has an Acknowledgement letter been sent?</div></span>
+						<div class="checkbox">
+							<label for="Acknowledged"><input type="checkbox" name="Acknowledged" id="Acknowledged" value="1" <%%CHECKED(Acknowledged)%%>> Acknowledged</label> <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#Acknowledged-description"></i>
+						</div>
+					</div>
+				</div>
+
+				<!-- Field: Donation Year -->
+				<div class="form-group Donations-DonationYear">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Donation Year</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="DonationYear"><%%VALUE(DonationYear)%%></div>
+					</div>
+				</div>
+
+				<!-- Field: Notes -->
+				<div class="form-group Donations-Notes">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="Notes">Notes</label>
+					<div class="col-lg-9">
+						<textarea class="form-control" name="Notes" id="Notes" rows=" 5"><%%VALUE(Notes)%%></textarea>
+					</div>
+				</div>
+
+				<!-- Field: In Memory Of -->
+				<div class="form-group Donations-MemoryOf">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="MemoryOf">In Memory Of <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#MemoryOf-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="MemoryOf-description"><div class="alert alert-info bspacer-xs">Is the donation being made in memory of someone?</div></span>
+						<input maxlength="40" type="text" class="form-control" name="MemoryOf" id="MemoryOf" value="<%%VALUE(MemoryOf)%%>">
+					</div>
+				</div>
+
+				<!-- Field: In Honor Of -->
+				<div class="form-group Donations-HonorOf">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3" for="HonorOf">In Honor Of <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#HonorOf-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block bspacer-xs collapse" id="HonorOf-description"><div class="alert alert-info bspacer-xs">Is the donation being made in honor of someone?</div></span>
+						<input maxlength="40" type="text" class="form-control" name="HonorOf" id="HonorOf" value="<%%VALUE(HonorOf)%%>">
+					</div>
+				</div>
+
+				<!-- Field: Mailing Name -->
+				<div class="form-group Donations-MailingName">
+					<hr class="hidden-md hidden-lg">
+					<label class="control-label col-lg-3">Mailing Name</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="MailingName"></div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<hr class="hidden-md hidden-lg">
+		<div class="col-md-4 col-lg-2" id="Donations_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<input type="hidden" name="Address1" value="<%%VALUE(Address1)%%>">
+	<input type="hidden" name="Address2" value="<%%VALUE(Address2)%%>">
+	<input type="hidden" name="City" value="<%%VALUE(City)%%>">
+	<input type="hidden" name="State" value="<%%VALUE(State)%%>">
+	<input type="hidden" name="Zip" value="<%%VALUE(Zip)%%>">
+	<input type="hidden" name="Country" value="<%%VALUE(Country)%%>">
+
+	<!-- child records -->
+	<hr>
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<div id="Donations-children" class="children-tabs">
+				<div class="text-center"><i class="glyphicon glyphicon-refresh loop-rotate"></i> <%%TRANSLATION(Loading ...)%%></div>
+			</div>
+		</div>
+	</div>
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode) {
+				setTimeout(AppGini.closeParentModal, 2000);
+			}
+
+
+			$j('#Donations_dv_container-loading').addClass('hidden');
+			$j('#Donations_dv_container').removeClass('hidden');
+			if(!$j('.table_view').length || $j('[name=SelectedID]').val().length) AppGini.focusFormElement('Donations', 'DonationDate');
+
+			$j('form').eq(0).change(function() {
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%BASE_UPLOAD_PATH%%>"]').click(function() { return false; });
+
+			if(embedded_mode) {
+				/* hide links to children tables in embedded mode */
+				$j('.detail_view a[id$=_link]').remove();
+
+				/* append embedded mode to all links */
+				var append_embedded = function() {
+					$j('a[href]:not([href^="#"]):not([href^="javascript"]):not([href$="Embedded=1"]):not([href*="link.php?t="]):not([href^="mailto:"]):not([href$=".jpg"]):not([href$=".png"]):not([href$=".gif"])').each(
+						function() {
+							$j(this).attr('href', $j(this).attr('href') + '&Embedded=1');
+						}
+					);
+				}
+				setTimeout(append_embedded, 500);
+				setTimeout(append_embedded, 1500);
+				setTimeout(append_embedded, 2500);
+				setTimeout(append_embedded, 3500);
+			}
+
+			/* when no record is selected ('add new' mode) */
+			if(add_new_mode) {
+				/* hide links to children tables */
+				$j('.detail_view a[id$=_link]').remove();
+			} else {
+				post(
+					'parent-children.php', {
+						ParentTable: 'Donations',
+						SelectedID: '<%%VALUE(ID)%%>',
+						Operation: 'show-children'
+					},
+					'Donations-children'
+				);
+			}
+
+			if(true /* !embedded_mode */) {
+				$j('.add_new_parent').click(function() {
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function() {
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+							/* if a new parent was added, select it */
+							var new_id = localStorage.getItem(pt + '_last_added_id');
+							if(new_id === null) return;
+
+							localStorage.removeItem(pt + '_last_added_id');
+							AppGini.lookupText({
+								id: new_id,
+								table: 'Donations',
+								field: field_id,
+								callback: function(data) {
+									$j('#' + field_id + '-container').select2('data', data, true);
+								}
+							});
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			AppGini.hideViewParentLinks();
+
+			$j('form').on('click', '.view_parent', function() {
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length) {
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				} else {
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length) {
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}' && parent_id != undefined && parent_id != '') {
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link) {
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function() {
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+
+									// in case the parent record was updated, we should update auto-fills
+									var updaterName = field_id + '_update_autofills';
+									if(typeof(window[updaterName]) == 'function')
+										window[updaterName]();
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+
+			/* load admin tools for admin user */
+			if(!add_new_mode) {
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=Donations&id=<%%URLVALUE(ID)%%>',
+					function(resp) {
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=Donations&id=<%%URLVALUE(ID)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function() {
+				if($j('#deselect.btn-warning').length) {
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

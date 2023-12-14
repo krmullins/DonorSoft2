@@ -1,0 +1,85 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: Organization Name -->
+		<div class="form-group MatchingFunds-OrganizationName" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Organization Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(OrganizationName)%%></div>
+			</div>
+		</div>
+		<!-- Field: Amount -->
+		<div class="form-group MatchingFunds-Amount" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Amount</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Amount)%%></div>
+			</div>
+		</div>
+		<!-- Field: SupporterID -->
+		<div class="form-group MatchingFunds-SupporterID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">SupporterID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="SupporterID<%%RND1%%>"><%%COMBOTEXT(SupporterID)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Date Submitted -->
+		<div class="form-group MatchingFunds-DateSubmitted" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Date Submitted</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(DateSubmitted)%%></div>
+			</div>
+		</div>
+		<!-- Field: Date Received -->
+		<div class="form-group MatchingFunds-DateReceived" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Date Received</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(DateReceived)%%></div>
+			</div>
+		</div>
+		<!-- Field: Notes -->
+		<div class="form-group MatchingFunds-Notes" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Notes</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Notes)%%></div>
+			</div>
+		</div>
+		<!-- Field: DonationID -->
+		<div class="form-group MatchingFunds-DonationID" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">DonationID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="DonationID<%%RND1%%>"><%%COMBOTEXT(DonationID)%%></span></div>
+			</div>
+		</div>
+		<!-- Field: Attachment -->
+		<div class="form-group MatchingFunds-Attachment" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Attachment</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="Attachment-link" href="link.php?t=MatchingFunds&f=Attachment&i=<%%VALUE(ID)%%>" target="_blank"><i class="glyphicon glyphicon-lg glyphicon-file" title="<%%VALUE(Attachment)%%>"></i></a><script>jQuery(function() { var e_Attachment = '<%%VALUE(Attachment)%%>'; if(e_Attachment == '' || e_Attachment == '&nbsp;' || e_Attachment == 'blank.gif') jQuery('#Attachment-link').hide(); });</script></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>

@@ -1,0 +1,22 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the Donations_init() hook (in hooks/Donations.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="Donations-DonationDate-<%%VALUE(ID)%%>" class="Donations-DonationDate text-bold"><%%VALUE(DonationDate)%%></td>
+		<td id="Donations-Amount-<%%VALUE(ID)%%>" class="Donations-Amount text-right text-bold"><%%VALUE(Amount)%%></td>
+		<td id="Donations-Description-<%%VALUE(ID)%%>" class="Donations-Description text-bold"><%%VALUE(Description)%%></td>
+		<td id="Donations-SupporterID-<%%VALUE(ID)%%>" class="Donations-SupporterID text-bold"><%%VALUE(SupporterID)%%></td>
+		<td id="Donations-CampaignID-<%%VALUE(ID)%%>" class="Donations-CampaignID text-bold"><%%VALUE(CampaignID)%%></td>
+		<td id="Donations-Paytype-<%%VALUE(ID)%%>" class="Donations-Paytype text-bold"><%%VALUE(Paytype)%%></td>
+		<td id="Donations-Matching-<%%VALUE(ID)%%>" class="Donations-Matching text-right text-bold"><%%VALUE(Matching)%%></td>
+		<td id="Donations-Anonymous-<%%VALUE(ID)%%>" class="Donations-Anonymous text-right text-bold"><%%VALUE(Anonymous)%%></td>
+		<td id="Donations-Acknowledged-<%%VALUE(ID)%%>" class="Donations-Acknowledged text-right text-bold"><%%VALUE(Acknowledged)%%></td>
+		<td id="Donations-DonationYear-<%%VALUE(ID)%%>" class="Donations-DonationYear text-bold"><%%VALUE(DonationYear)%%></td>
+		<td id="Donations-Notes-<%%VALUE(ID)%%>" class="Donations-Notes text-bold"><%%VALUE(Notes)%%></td>
+		<td class="child-MatchingFunds-DonationID child-records-info" data-id="<%%VALUE(ID)%%>" data-table="MatchingFunds" data-lookup-field="DonationID">
+			<a href="MatchingFunds_view.php?filterer_DonationID=<%%VALUE(ID)%%>" target="_blank" title="<%%TRANSLATION(view)%%>" class="children-count" style="visibility: hidden;"><span class="count-children">0</span> <i class="glyphicon glyphicon-new-window"></i></a>
+			<a href="MatchingFunds_view.php?filterer_DonationID=<%%VALUE(ID)%%>&addNew_x=1&Embedded=1" target="_blank" class="modal-link new-child" title="<%%TRANSLATION(Add New)%%> (Matching Funds)" style="visibility: hidden;"><i class="text-success glyphicon glyphicon-plus"></i></a>
+		</td>

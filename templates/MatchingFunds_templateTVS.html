@@ -1,0 +1,18 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the MatchingFunds_init() hook (in hooks/MatchingFunds.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="MatchingFunds-OrganizationName-<%%VALUE(ID)%%>" class="MatchingFunds-OrganizationName text-bold"><%%VALUE(OrganizationName)%%></td>
+		<td id="MatchingFunds-Amount-<%%VALUE(ID)%%>" class="MatchingFunds-Amount text-right text-bold"><%%VALUE(Amount)%%></td>
+		<td id="MatchingFunds-SupporterID-<%%VALUE(ID)%%>" class="MatchingFunds-SupporterID text-bold"><%%VALUE(SupporterID)%%></td>
+		<td id="MatchingFunds-DateSubmitted-<%%VALUE(ID)%%>" class="MatchingFunds-DateSubmitted text-bold"><%%VALUE(DateSubmitted)%%></td>
+		<td id="MatchingFunds-DateReceived-<%%VALUE(ID)%%>" class="MatchingFunds-DateReceived text-bold"><%%VALUE(DateReceived)%%></td>
+		<td id="MatchingFunds-Notes-<%%VALUE(ID)%%>" class="MatchingFunds-Notes text-bold"><%%VALUE(Notes)%%></td>
+		<td id="MatchingFunds-DonationID-<%%VALUE(ID)%%>" class="MatchingFunds-DonationID text-bold"><%%VALUE(DonationID)%%></td>
+		<td id="MatchingFunds-Attachment-<%%VALUE(ID)%%>" class="MatchingFunds-Attachment text-bold"><a href="link.php?t=MatchingFunds&f=Attachment&i=<%%VALUE(ID)%%>" target="_blank" title="<%%VALUE(Attachment)%%>" class="btn btn-default"><i class="glyphicon glyphicon-lg glyphicon-file text-info"></i></a></td>
+		<script>$j(function() {
+			var e_Attachment = '<%%VALUE(Attachment)%%>'; if(e_Attachment == '' || e_Attachment == '&nbsp;') $j(/*<*/ '#MatchingFunds-Attachment-<%%VALUE(ID)%%>' /*>*/).html('');
+		});</script>

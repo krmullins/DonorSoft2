@@ -1,0 +1,184 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<!-- Field: First Name -->
+		<div class="form-group Supporters-FirstName" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">First Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(FirstName)%%></div>
+			</div>
+		</div>
+		<!-- Field: Last Name -->
+		<div class="form-group Supporters-LastName" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Last Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(LastName)%%></div>
+			</div>
+		</div>
+		<!-- Field: Spouse Name -->
+		<div class="form-group Supporters-SpouseName" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Spouse Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(SpouseName)%%></div>
+			</div>
+		</div>
+		<!-- Field: Address1 -->
+		<div class="form-group Supporters-Address1" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Address1</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Address1)%%></div>
+			</div>
+		</div>
+		<!-- Field: Address2 -->
+		<div class="form-group Supporters-Address2" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Address2</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Address2)%%></div>
+			</div>
+		</div>
+		<!-- Field: City -->
+		<div class="form-group Supporters-City" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">City</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(City)%%></div>
+			</div>
+		</div>
+		<!-- Field: State -->
+		<div class="form-group Supporters-State" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">State</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(State)%%></div>
+			</div>
+		</div>
+		<!-- Field: Zip -->
+		<div class="form-group Supporters-Zip" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Zip</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Zip)%%></div>
+			</div>
+		</div>
+		<!-- Field: Country -->
+		<div class="form-group Supporters-Country" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Country</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(Country)%%></div>
+			</div>
+		</div>
+		<!-- Field: Phone -->
+		<div class="form-group Supporters-Phone" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Phone</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Phone)%%></div>
+			</div>
+		</div>
+		<!-- Field: Cell -->
+		<div class="form-group Supporters-Cell" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Cell</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Cell)%%></div>
+			</div>
+		</div>
+		<!-- Field: Email -->
+		<div class="form-group Supporters-Email" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Email</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Email)%%></div>
+			</div>
+		</div>
+		<!-- Field: Status -->
+		<div class="form-group Supporters-Status" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Status</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(Status)%%></div>
+			</div>
+		</div>
+		<!-- Field: Contact Method -->
+		<div class="form-group Supporters-ContactMethod" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Contact Method</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(ContactMethod)%%></div>
+			</div>
+		</div>
+		<!-- Field: Total Donated -->
+		<div class="form-group Supporters-TotalDonated" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Total Donated</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(TotalDonated)%%></div>
+			</div>
+		</div>
+		<!-- Field: Total Matched -->
+		<div class="form-group Supporters-TotalMatched" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Total Matched</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(TotalMatched)%%></div>
+			</div>
+		</div>
+		<!-- Field: Mailing Name -->
+		<div class="form-group Supporters-MailingName" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Mailing Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(MailingName)%%></div>
+			</div>
+		</div>
+		<!-- Field: Mailing Name Full -->
+		<div class="form-group Supporters-MailingNameFull" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Mailing Name Full</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(MailingNameFull)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+	$j(function() {
+		// render read-only checkboxes in DVP
+		$j('form input[type=checkbox]:not(.hidden):checked')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-check"></i>');
+		$j('form input[type=checkbox]:not(.hidden):not(:checked)')
+			.addClass('hidden')
+			.after('<i class="glyphicon glyphicon-unchecked"></i>')
+	})
+</script>
+<!-- child records -->
+<div class="panel-body">
+	<div id="Supporters-children"></div>
+</div>
+
+<script>
+	$j(function() {
+		/* prevent loading child records in multiple DVP */
+		if($j('[id=Supporters-children]').length > 1) return;
+
+		post(
+			'parent-children.php', {
+				ParentTable: 'Supporters',
+				SelectedID: '<%%VALUE(ID)%%>',
+				Operation: 'show-children-printable'
+			},
+			'Supporters-children',
+			'disable-element',
+			'loading-element',
+			apply_persisting_children
+		);
+
+		$j('form').on('click', '#children-tabs button[data-target]', function() {
+			$j(this).toggleClass('active');
+			persist_expanded_child($j(this).attr('id'));
+		});
+	})
+</script>
+
